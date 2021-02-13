@@ -13,7 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - function snippets to simply insert different method type
-  - func
-  - afunc
-  - gfunc
-  - gafunc
+  - func: Insert a method
+  - afunc: Insert an async method
+  - gfunc: Insert a generic method
+  - gafunc: Insert a generic async method
+  - func1: Insert a method with one parameter
+  - afunc1: Insert an async method with one parameter
