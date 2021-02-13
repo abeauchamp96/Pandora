@@ -75,4 +75,88 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Generic method</Title>
+      <Description>Insert a generic method</Description>
+      <Shortcut>gfunc</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Accessor</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnType</ID>
+          <Default>void</Default>
+        </Literal>
+        <Literal>
+          <ID>MethodName</ID>
+          <Default>Method</Default>
+        </Literal>
+        <Literal>
+          <ID>Generic</ID>
+          <Default>T</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[$Accessor$ $ReturnType$ $MethodName$<$Generic$>()
+        {
+          $end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Generic asynchronous method</Title>
+      <Description>Insert a generic asynchronous method</Description>
+      <Shortcut>gafunc</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Accessor</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnType</ID>
+          <Default>Task</Default>
+        </Literal>
+        <Literal>
+          <ID>MethodName</ID>
+          <Default>Method</Default>
+        </Literal>
+        <Literal>
+          <ID>Generic</ID>
+          <Default>T</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[$Accessor$ $ReturnType$ $MethodName$Async<$Generic$>() => Task.CompletedTask;$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
