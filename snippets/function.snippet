@@ -78,6 +78,45 @@
 
   <CodeSnippet Format="1.0.0">
     <Header>
+      <Title>Asynchronous method with result</Title>
+      <Description>Insert an asynchronous method with result</Description>
+      <Shortcut>rafunc</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Accessor</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>ReturnType</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>MethodName</ID>
+          <Default>Method</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[$Accessor$ Task<$ReturnType$> $MethodName$Async() => Task.FromResult<$ReturnType$>(default);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
       <Title>Generic method</Title>
       <Description>Insert a generic method</Description>
       <Shortcut>gfunc</Shortcut>
@@ -159,7 +198,7 @@
       </Code>
     </Snippet>
   </CodeSnippet>
-
+  
   <CodeSnippet Format="1.0.0">
     <Header>
       <Title>Method with one parameter</Title>
