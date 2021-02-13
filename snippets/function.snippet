@@ -290,4 +290,69 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Interface method</Title>
+      <Description>Insert a method for an interface</Description>
+      <Shortcut>ifunc</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>ReturnType</ID>
+          <Default>void</Default>
+        </Literal>
+        <Literal>
+          <ID>MethodName</ID>
+          <Default>Method</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[$ReturnType$ $MethodName$($end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Asynchronous interface method</Title>
+      <Description>Insert an asynchronous method for an interface</Description>
+      <Shortcut>aifunc</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ReturnType</ID>
+          <Default>Task</Default>
+        </Literal>
+        <Literal>
+          <ID>MethodName</ID>
+          <Default>Method</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[$ReturnType$ $MethodName$Async($end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>

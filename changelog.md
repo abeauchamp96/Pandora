@@ -20,3 +20,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - func1: Insert a method with one parameter
   - afunc1: Insert an async method with one parameter
   - rafunc: Insert an async method which return a result
+  - ifunc: Insert a method for an interface
+  - aifunc: Insert an async method for an interface
