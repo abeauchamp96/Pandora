@@ -22,3 +22,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - rafunc: Insert an async method which return a result
   - ifunc: Insert a method for an interface
   - aifunc: Insert an async method for an interface
+  - lfunc: Insert a local function
+  - alfunc: Insert an asynchronous function
