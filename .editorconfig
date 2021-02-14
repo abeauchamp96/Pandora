@@ -46,3 +46,9 @@ dotnet_style_prefer_conditional_expression_over_return = true:warning
 dotnet_diagnostic.SA1503.severity = none
 
 csharp_prefer_braces = when_multiline:warning
+
+# SA1413: Use trailing comma in multi-line initializers
+dotnet_diagnostic.SA1413.severity = none
+
+# IDE0058: Expression value is never used
+csharp_style_unused_value_expression_statement_preference = discard_variable:none

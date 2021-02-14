@@ -24,6 +24,7 @@ namespace Pandora.Utility.Helpers
 
         public string ReadAllText(string path)
             => File.Exists(path) ? File.ReadAllText(path) : string.Empty;
+
         public Task<string> ReadAllTextAsync(string path, CancellationToken cancellationToken = default)
             => File.Exists(path) ? File.ReadAllTextAsync(path, cancellationToken) : Task.FromResult(string.Empty);
     }
