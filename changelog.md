@@ -67,3 +67,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - reqverifyexact: Insert a request verify exactly on a mock
   - reqverifytimes: Insert a request verify with a times on a mock
   - reqverifynever: Insert a verify was never called on a mock
+- xunit snippets for unit tests
+  - fact: Insert a fact method
+  - afact: Insert an asynchronous fact method
+  - theory: Insert a theory fact method
+  - atheory: Insert an asynchronous theory fact method
+  - xinline: Insert an inline data for theory
+  - xmember: Insert a member data for theory
+  - xclass: Insert a class data for theory

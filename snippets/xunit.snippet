@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>xUnit fact</Title>
+      <Description>Insert a fact method for unit test</Description>
+      <Shortcut>fact</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>xUnit</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>UnitTestName</ID>
+          <Default>FactMethod</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[Fact]
+        public void $UnitTestName$()
+        {
+          $end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Asynchronous xUnit fact</Title>
+      <Description>Insert an asynchronous fact method for unit test</Description>
+      <Shortcut>afact</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>xUnit</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>UnitTestName</ID>
+          <Default>FactMethod</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[Fact]
+        public async Task $UnitTestName$()
+        {
+          $end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>xUnit theory</Title>
+      <Description>Insert a theory method for unit test</Description>
+      <Shortcut>theory</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>xUnit</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>UnitTestName</ID>
+          <Default>FactMethod</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[Theory]
+        public void $UnitTestName$()
+        {
+          $end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Asynchronous xUnit theory</Title>
+      <Description>Insert an asynchronous theory method for unit test</Description>
+      <Shortcut>atheory</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>xUnit</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>UnitTestName</ID>
+          <Default>FactMethod</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[Theory]
+        public async Task $UnitTestName$()
+        {
+          $end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Inline data</Title>
+      <Description>Insert an inline data</Description>
+      <Shortcut>xinline</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>xUnit</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[InlineData($end$)]]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Member data</Title>
+      <Description>Insert a member data</Description>
+      <Shortcut>xmember</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>xUnit</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[MemberData(nameof($end$))]]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Class data</Title>
+      <Description>Insert a class data</Description>
+      <Shortcut>xclass</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>xUnit</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Xunit</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[ClassData(typeof($end$))]]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
