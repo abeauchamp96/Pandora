@@ -24,7 +24,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - aifunc: Insert an async method for an interface
   - lfunc: Insert a local function
   - alfunc: Insert an asynchronous function
-- blazor snippets
-  - inject: Insert an injectable property for the component
-  - param: Insert a parameter property for the component
-  - cparam: Insert a cascading parameter property for the component
+- blazor snippets to insert code for a component
+  - inject: Insert an injectable property
+  - param: Insert a parameter property
+  - cparam: Insert a cascading parameter property
+  - onafter: Insert the OnAfterRender override
+  - aonafter: Insert the OnAfterRenderAsync override
+  - oninit: Insert the OnInitialized override
+  - aoninit: Insert the OnInitializedAsync override
+  - onparam: Insert the OnParametersSet override
+  - aonparam: Insert the OnParametersSetAsync override
+  - setparam: Insert the SetParametersAsync override
+  - shouldrender: Insert the ShouldRender override

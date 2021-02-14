@@ -121,4 +121,195 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OnAfterRender</Title>
+      <Description>Insert the OnAfterRender override for the component</Description>
+      <Shortcut>onafter</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[protected override void OnAfterRender(bool firstRender) => base.OnAfterRender(firstRender);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OnAfterRenderAsync</Title>
+      <Description>Insert the OnAfterRenderAsync override for the component</Description>
+      <Shortcut>aonafter</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[protected override Task OnAfterRenderAsync(bool firstRender) => base.OnAfterRenderAsync(firstRender);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OnInitialized</Title>
+      <Description>Insert the OnInitialized override for the component</Description>
+      <Shortcut>oninit</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[protected override void OnInitialized() => base.OnInitialized();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OnInitializedAsync</Title>
+      <Description>Insert the OnInitializedAsync override for the component</Description>
+      <Shortcut>aoninit</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[protected override Task OnInitializedAsync() => base.OnInitializedAsync();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OnParametersSet</Title>
+      <Description>Insert the OnParametersSet override for the component</Description>
+      <Shortcut>onparam</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[protected override void OnParametersSet() => base.OnParametersSet();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>OnParametersSetAsync</Title>
+      <Description>Insert the OnParametersSetAsync override for the component</Description>
+      <Shortcut>aonparam</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[protected override Task OnParametersSetAsync() => base.OnParametersSetAsync();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>SetParametersAsync</Title>
+      <Description>Insert the SetParametersAsync override for the component</Description>
+      <Shortcut>setparam</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.AspNetCore.Components</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Threading.Tasks</Namespace>
+        </Import>
+      </Imports>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[public override Task SetParametersAsync(ParameterView parameters) => base.SetParametersAsync(parameters);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ShouldRender</Title>
+      <Description>Insert the ShouldRender override for the component</Description>
+      <Shortcut>shouldrender</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[protected override bool ShouldRender() => base.ShouldRender();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
