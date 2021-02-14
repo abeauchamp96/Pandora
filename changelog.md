@@ -40,3 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - exfunc: Insert an extension method
   - aexfunc: Insert an asynchronous extension method
   - exservices: Insert a service collection extension method
+- miscellaneous snippets
+  - ter: Insert a ternary condition operator
+  - vter: Insert a ternary condition then affect to a variable
+  - rter: Insert a ternary condition then return the result

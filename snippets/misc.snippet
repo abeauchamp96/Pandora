@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Ternary conditional operator</Title>
+      <Description>Insert a ternary condition operator: ?:</Description>
+      <Shortcut>ter</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Operator</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Condition</ID>
+          <Default>Condition</Default>
+        </Literal>
+        <Literal>
+          <ID>TrueStatement</ID>
+          <Default>true</Default>
+        </Literal>
+        <Literal>
+          <ID>FalseStatement</ID>
+          <Default>false</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[$Condition$ ? $TrueStatement$ : $FalseStatement$;$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Variable with ternary conditional operator</Title>
+      <Description>Affect variable from a ternary condition operator</Description>
+      <Shortcut>vter</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Operator</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+          <Default>value</Default>
+        </Literal>
+        <Literal>
+          <ID>Condition</ID>
+          <Default>Condition</Default>
+        </Literal>
+        <Literal>
+          <ID>TrueStatement</ID>
+          <Default>true</Default>
+        </Literal>
+        <Literal>
+          <ID>FalseStatement</ID>
+          <Default>false</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[var $Variable$ = $Condition$ ? $TrueStatement$ : $FalseStatement$;$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Return with ternary conditional operator</Title>
+      <Description>Return the value from a ternary condition operator</Description>
+      <Shortcut>rter</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Operator</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Condition</ID>
+          <Default>Condition</Default>
+        </Literal>
+        <Literal>
+          <ID>TrueStatement</ID>
+          <Default>true</Default>
+        </Literal>
+        <Literal>
+          <ID>FalseStatement</ID>
+          <Default>false</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[return $Condition$ ? $TrueStatement$ : $FalseStatement$;$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
