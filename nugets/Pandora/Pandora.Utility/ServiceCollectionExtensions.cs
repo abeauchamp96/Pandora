@@ -14,7 +14,8 @@ namespace Pandora.Utility
                 .AddTransient<IDateTimeHelper, DateTimeHelper>()
                 .AddTransient<IDateTimeOffsetHelper, DateTimeOffsetHelper>()
                 .AddTransient<IDirectoryHelper, DirectoryHelper>()
-                .AddTransient<IFileHelper, FileHelper>();
+                .AddTransient<IFileHelper, FileHelper>()
+                .AddTransient<IFileReaderHelper, FileReaderHelper>();
         }
     }
 }
