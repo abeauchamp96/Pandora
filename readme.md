@@ -24,12 +24,33 @@
 
 - [Table of Contents](#table-of-contents)
 - [About](#about)
+- [Getting Started](#getting-started)
 - [Authors](#authors)
 - [Acknowledgements](#acknowledgements)
 
 ## About
 
 Aims to develop software more easily through tools, nugets, scripts, templates, code snippets, etc.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Installing
+
+This section explain how to use snippets in visual studio. Make sure you already extract the Pandora release.
+
+#### Snippet
+
+On the Tools menu, select Code Snippets manager then Import (Can use the shorcut: Ctrl+k, Ctrl+b). Import all snippets from the extracted folder (it will be in snippets folder). Click Finish then close the manager.
+
+#### Attention
+
+Some snippets need the package installed to be used correctly.
+
+* Moq snippets: [Moq](https://github.com/moq/moq) and [Moq.Contrib.HttpClient](https://github.com/maxkagamine/Moq.Contrib.HttpClient)
+* XUnit snippets: [XUnit](https://xunit.net/)
+* Blazor snippets: [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
 
 ## Authors
 
