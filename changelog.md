@@ -59,3 +59,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - reqsetup: Insert a request setup for a http mock
   - exsetup: Insert an exception setup for a mock
   - callsetup: Insert a callback setup for a mock
+  - verify: Insert a verify on a mock
+  - verifyexact: Insert a verify exactly on a mock
+  - verifytimes: Insert a verify with a times on a mock
+  - verifynever: Insert a verify was never called on a mock
+  - reqverify: Insert a request verify on a mock
+  - reqverifyexact: Insert a request verify exactly on a mock
+  - reqverifytimes: Insert a request verify with a times on a mock
+  - reqverifynever: Insert a verify was never called on a mock

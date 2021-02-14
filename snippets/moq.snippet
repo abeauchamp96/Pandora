@@ -262,4 +262,342 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Verify mock</Title>
+      <Description>Insert a verify on a mock</Description>
+      <Shortcut>verify</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Verify($FunctionMock$);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Verify mock with exactly</Title>
+      <Description>Insert a verify exactly on a mock</Description>
+      <Shortcut>verifyexact</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+        <Literal>
+          <ID>Exactly</ID>
+          <Default>1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Verify($FunctionMock$, Times.Exactly($Exactly$));$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Verify mock with Times</Title>
+      <Description>Insert a verify with a times on a mock</Description>
+      <Shortcut>verifytimes</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+        <Literal>
+          <ID>Times</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Verify($FunctionMock$, Times.$Times$);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Verify mock with Never</Title>
+      <Description>Insert a verify was never called on a mock</Description>
+      <Shortcut>verifynever</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Verify($FunctionMock$, Times.Never);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Request verify mock</Title>
+      <Description>Insert a request verify on a mock</Description>
+      <Shortcut>reqverify</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Moq.Contrib.HttpClient</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net.Http</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>HttpMethod</ID>
+        </Literal>
+        <Literal>
+          <ID>Url</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.VerifyRequest(HttpMethod.$HttpMethod$, $Url$);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Request verify mock with exactly</Title>
+      <Description>Insert a request verify exactly on a mock</Description>
+      <Shortcut>reqverifyexact</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Moq.Contrib.HttpClient</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net.Http</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>HttpMethod</ID>
+        </Literal>
+        <Literal>
+          <ID>Url</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+        <Literal>
+          <ID>Exactly</ID>
+          <Default>1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.VerifyRequest(HttpMethod.$HttpMethod$, $Url$, Times.Exactly($Exactly$));$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Request verify mock with Times</Title>
+      <Description>Insert a request verify with a times on a mock</Description>
+      <Shortcut>reqverifytimes</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Moq.Contrib.HttpClient</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net.Http</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>HttpMethod</ID>
+        </Literal>
+        <Literal>
+          <ID>Url</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+        <Literal>
+          <ID>Times</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.VerifyRequest(HttpMethod.$HttpMethod$, $Url$, Times.$Times$);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Request verify mock with Never</Title>
+      <Description>Insert a request verify was never called on a mock</Description>
+      <Shortcut>reqverifynever</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Moq.Contrib.HttpClient</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net.Http</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>HttpMethod</ID>
+        </Literal>
+        <Literal>
+          <ID>Url</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.VerifyRequest(HttpMethod.$HttpMethod$, $Url$, Times.Never());$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
