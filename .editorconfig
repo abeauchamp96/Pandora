@@ -1,0 +1,19 @@
+[*.cs]
+
+# SA1516: Elements should be separated by blank line
+dotnet_diagnostic.SA1516.severity = none
+
+# SA1400: Access modifier should be declared
+dotnet_diagnostic.SA1400.severity = none
+
+# IDE0040: Add accessibility modifiers
+dotnet_style_require_accessibility_modifiers = always:warning
+
+# SA1649: File name should match first type name
+dotnet_diagnostic.SA1649.severity = warning
+
+# SA1402: File may only contain a single type
+dotnet_diagnostic.SA1402.severity = warning
+
+# SA0001: XML comment analysis is disabled due to project configuration
+dotnet_diagnostic.SA0001.severity = none
