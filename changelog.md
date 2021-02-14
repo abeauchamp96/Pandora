@@ -49,3 +49,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - tryp: Insert TryParse method
   - iftryp: Insert TryParse method inside an if statement
   - tertryp: Insert TryParse method with ternary condition
+  - field: Insert a private readonly field for a class
