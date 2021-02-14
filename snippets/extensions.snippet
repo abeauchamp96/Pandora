@@ -91,4 +91,42 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>ServiceCollection extension</Title>
+      <Description>Insert a service collection method</Description>
+      <Shortcut>exservices</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.Extensions.DependencyInjection</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Accessor</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>MethodName</ID>
+          <Default>AddServices</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[$Accessor$ static IServiceCollection $MethodName$(this IServiceCollection services)
+        {
+          return services;$end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
