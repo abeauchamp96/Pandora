@@ -20,3 +20,24 @@ dotnet_diagnostic.SA0001.severity = none
 
 # IDE0022: Use expression body for methods
 csharp_style_expression_bodied_methods = when_on_single_line:warning
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SA1122: Use string.Empty for empty strings
+dotnet_diagnostic.SA1122.severity = warning
+
+# IDE0003: Remove qualification
+dotnet_style_qualification_for_event = true:warning
+
+# IDE0003: Remove qualification
+dotnet_style_qualification_for_field = true:warning
+
+# IDE0003: Remove qualification
+dotnet_style_qualification_for_property = true:warning
+
+# IDE0003: Remove qualification
+dotnet_diagnostic.IDE0003.severity = warning
+
+# IDE0003: Remove qualification
+dotnet_style_qualification_for_method = true:warning
