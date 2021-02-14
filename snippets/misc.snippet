@@ -108,4 +108,74 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Variable with switch expression</Title>
+      <Description>Affect variable from switch expression</Description>
+      <Shortcut>vswitch</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>VariableType</ID>
+          <Default>var</Default>
+        </Literal>
+        <Literal>
+          <ID>VariableName</ID>
+          <Default>value</Default>
+        </Literal>
+        <Literal>
+          <ID>ValueSwitch</ID>
+          <Default>valueSwitch</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[$VariableType$ $VariableName$ = $ValueSwitch$ switch
+        {
+            $end$
+        };]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Return with switch expression</Title>
+      <Description>Return the value from the switch expression</Description>
+      <Shortcut>rswitch</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+          <Default>value</Default>
+        </Literal>
+        <Literal>
+          <ID>Variable</ID>
+          <Default>value</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[return $Variable$ switch
+        {
+            $end$
+        };]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>

@@ -44,3 +44,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - ter: Insert a ternary condition operator
   - vter: Insert a ternary condition then affect to a variable
   - rter: Insert a ternary condition then return the result
+  - vswitch: Insert a switch expression then affect to a variable
+  - rswitch: Insert a switch expression then return the result
