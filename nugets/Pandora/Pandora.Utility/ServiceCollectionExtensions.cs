@@ -12,7 +12,8 @@ namespace Pandora.Utility
         {
             return services
                 .AddTransient<IDateTimeHelper, DateTimeHelper>()
-                .AddTransient<IDateTimeOffsetHelper, DateTimeOffsetHelper>();
+                .AddTransient<IDateTimeOffsetHelper, DateTimeOffsetHelper>()
+                .AddTransient<IDirectoryHelper, DirectoryHelper>();
         }
     }
 }

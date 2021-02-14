@@ -8,6 +8,7 @@ namespace Pandora.Utility.Helpers
     internal sealed class DateTimeOffsetHelper : IDateTimeOffsetHelper
     {
         public DateTimeOffset GetNowOffset() => DateTimeOffset.Now;
+
         public DateTimeOffset GetUtcNowOffset() => DateTimeOffset.UtcNow;
     }
 }

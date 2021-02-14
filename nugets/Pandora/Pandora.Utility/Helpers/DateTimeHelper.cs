@@ -8,6 +8,7 @@ namespace Pandora.Utility.Helpers
     internal sealed class DateTimeHelper : IDateTimeHelper
     {
         public DateTime GetNow() => DateTime.Now;
+
         public DateTime GetUtcNow() => DateTime.UtcNow;
     }
 }
