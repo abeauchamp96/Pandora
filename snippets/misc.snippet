@@ -317,4 +317,34 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Empty enumerable</Title>
+      <Description>Insert an empty enumerable</Description>
+      <Shortcut>empty</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>System.Linq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Type</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[Enumerable.Empty<$Type$>();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
