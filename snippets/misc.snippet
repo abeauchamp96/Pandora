@@ -178,4 +178,113 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>TryParse</Title>
+      <Description>Insert TryParse method</Description>
+      <Shortcut>tryp</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Object</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>Value</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+        <Literal>
+          <ID>ParsedValue</ID>
+          <Default>parsedValue</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[$Object$.TryParse($Value$, out var $ParsedValue$);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>TryParse with if statement</Title>
+      <Description>Insert TryParse method with an if statement</Description>
+      <Shortcut>iftryp</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Object</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>Value</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+        <Literal>
+          <ID>ParsedValue</ID>
+          <Default>parsedValue</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[if($Object$.TryParse($Value$, out var $ParsedValue$))
+        {
+            $end$
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>TryParse with ternary condition</Title>
+      <Description>Insert TryParse method with ternary condition</Description>
+      <Shortcut>tertryp</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Object</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>Value</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+        <Literal>
+          <ID>ParsedValue</ID>
+          <Default>parsedValue</Default>
+        </Literal>
+        <Literal>
+          <ID>FalseStatement</ID>
+          <Default>default</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[$Object$.TryParse($Value$, out var $ParsedValue$) ? $ParsedValue$ : $FalseStatement$;$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
