@@ -77,3 +77,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - xclass: Insert a class data for theory
 - templates
   - Added changelog template
+  - Added readme template
