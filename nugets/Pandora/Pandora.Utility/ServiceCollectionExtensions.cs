@@ -11,7 +11,8 @@ namespace Pandora.Utility
         public static IServiceCollection AddHelpers(this IServiceCollection services)
         {
             return services
-                .AddTransient<IDateTimeHelper, DateTimeHelper>();
+                .AddTransient<IDateTimeHelper, DateTimeHelper>()
+                .AddTransient<IDateTimeOffsetHelper, DateTimeOffsetHelper>();
         }
     }
 }
