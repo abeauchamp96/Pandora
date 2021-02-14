@@ -26,3 +26,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - alfunc: Insert an asynchronous function
 - blazor snippets
   - inject: Insert an injectable property for the component
+  - param: Insert a parameter property for the component
+  - cparam: Insert a cascading parameter property for the component

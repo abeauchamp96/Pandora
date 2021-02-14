@@ -37,4 +37,88 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Parameter</Title>
+      <Description>Insert a parameter property for the component</Description>
+      <Shortcut>param</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.AspNetCore.Components</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ParameterType</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>ParameterName</ID>
+          <Default>Parameter</Default>
+        </Literal>
+        <Literal>
+          <ID>DefaultValue</ID>
+          <Default>default!</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[Parameter]
+        public $ParameterType$ $ParameterName$ { get; set; } = $DefaultValue$;$end$
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Cascading parameter</Title>
+      <Description>Insert a cascading parameter property for the component</Description>
+      <Shortcut>cparam</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Blazor</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Microsoft.AspNetCore.Components</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>ParameterType</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>ParameterName</ID>
+          <Default>Parameter</Default>
+        </Literal>
+        <Literal>
+          <ID>DefaultValue</ID>
+          <Default>default!</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method decl">
+        <![CDATA[[CascadingParameter]
+        private $ParameterType$ $ParameterName$ { get; set; } = $DefaultValue$;$end$
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
