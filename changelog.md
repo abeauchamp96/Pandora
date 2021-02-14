@@ -36,3 +36,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - aonparam: Insert the OnParametersSetAsync override
   - setparam: Insert the SetParametersAsync override
   - shouldrender: Insert the ShouldRender override
+- extensions snippets to insert extension method
+  - exfunc: Insert an extension method
+  - aexfunc: Insert an asynchronous extension method
