@@ -24,3 +24,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - aifunc: Insert an async method for an interface
   - lfunc: Insert a local function
   - alfunc: Insert an asynchronous function
+- blazor snippets
+  - inject: Insert an injectable property for the component
