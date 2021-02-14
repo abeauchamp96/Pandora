@@ -53,3 +53,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - empty: Insert an empty enumerable
 - moq snippets for unit tests
   - mock: Insert a mock
+  - setup: Insert a setup for a mock
+  - asetup: Insert an asynchronous setup for a mock
+  - gsetup: Insert a getter setup for a mock
+  - reqsetup: Insert a request setup for a http mock
+  - exsetup: Insert an exception setup for a mock
+  - callsetup: Insert a callback setup for a mock

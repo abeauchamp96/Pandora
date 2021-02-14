@@ -35,4 +35,231 @@
       </Code>
     </Snippet>
   </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Setup mock</Title>
+      <Description>Insert a setup for a mock</Description>
+      <Shortcut>setup</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Setup($FunctionMock$).Returns($end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Asynchronous setup mock</Title>
+      <Description>Insert an asynchronous setup for a mock</Description>
+      <Shortcut>asetup</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Setup($FunctionMock$).ReturnsAsync($end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Getter setup mock</Title>
+      <Description>Insert a getter setup for a mock</Description>
+      <Shortcut>gsetup</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>PropertyMock</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.SetupGet($PropertyMock$).Returns($end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Request setup mock</Title>
+      <Description>Insert a request setup for a http mock</Description>
+      <Shortcut>reqsetup</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+        <Import>
+          <Namespace>Moq.Contrib.HttpClient</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net</Namespace>
+        </Import>
+        <Import>
+          <Namespace>System.Net.Http</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>HttpMethod</ID>
+        </Literal>
+        <Literal>
+          <ID>Url</ID>
+          <Default>string.Empty</Default>
+        </Literal>
+        <Literal>
+          <ID>StatusCode</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.SetupRequest(HttpMethod.$HttpMethod$, $Url$).ReturnsResponse(HttpStatusCode.$StatusCode$, $end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Exception setup mock</Title>
+      <Description>Insert an exception setup for a mock</Description>
+      <Shortcut>exsetup</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+        <Literal>
+          <ID>Exception</ID>
+          <Default>Exception</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Setup($FunctionMock$).Throws<$Exception$>();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Callback setup mock</Title>
+      <Description>Insert a callback setup for a mock</Description>
+      <Shortcut>callsetup</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>Moq</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>Moq</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Mock</ID>
+        </Literal>
+        <Literal>
+          <ID>FunctionMock</ID>
+        </Literal>
+        <Literal>
+          <ID>ParameterTypes</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="method body">
+        <![CDATA[$Mock$.Setup($FunctionMock$).Callback<$ParameterTypes$>($end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
 </CodeSnippets>
