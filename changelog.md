@@ -51,3 +51,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - tertryp: Insert TryParse method with ternary condition
   - field: Insert a private readonly field for a class
   - empty: Insert an empty enumerable
+- moq snippets for unit tests
+  - mock: Insert a mock
