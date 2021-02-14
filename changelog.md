@@ -75,3 +75,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - xinline: Insert an inline data for theory
   - xmember: Insert a member data for theory
   - xclass: Insert a class data for theory
+- templates
+  - Added changelog template
