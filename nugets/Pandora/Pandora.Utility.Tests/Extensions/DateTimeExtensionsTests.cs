@@ -3,10 +3,9 @@
 
 using System;
 using FluentAssertions;
-using Pandora.Utility.Extensions;
 using Xunit;
 
-namespace Pandora.Utility.Tests.Extensions
+namespace Pandora.Utility.Extensions
 {
     public class DateTimeExtensionsTests
     {
