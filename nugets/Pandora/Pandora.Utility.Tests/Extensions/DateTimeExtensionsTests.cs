@@ -1,8 +1,8 @@
 ﻿// Copyright (c) Alexandre Beauchamp. All rights reserved.
 // Licensed under the MIT license.
 
-using System;
 using FluentAssertions;
+using System;
 using Xunit;
 
 namespace Pandora.Utility.Extensions
