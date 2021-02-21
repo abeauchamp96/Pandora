@@ -1,0 +1,38 @@
+name: $(Build.DefinitionName).$(Build.SourceBranchName).$(Date:yyyyMMdd).$(Rev:r)
+
+pool: 'Waves'
+
+trigger:
+- develop
+- master
+
+stages:
+- stage: Build_nugets
+  displayName: 'Build nugets'
+  jobs:
+    - job: Build
+      displayName: 'Build'
+      variables:
+        projects: '**/*.csproj'
+        unitTestProjects: '**/*.Tests.csproj'
+        buildConfiguration: 'Release'
+      steps:
+        - task: DotNetCoreCLI@2
+          displayName: 'Restore packages'
+          inputs:
+            command: restore
+            projects: $(projects)
+            feedsToUse: select
+            vstsFeed: 'pulsewave/pandora'
+        - task: DotNetCoreCLI@2
+          displayName: 'Compile the solution'
+          inputs:
+            command: build
+            projects: $(projects)
+            arguments: '--configuration $(buildConfiguration)'
+        - task: DotNetCoreCLI@2
+          displayName: 'Run unit tests'
+          inputs:
+            command: test
+            projects: $(unitTestProjects)
+            arguments: '--configuration $(buildConfiguration)'
