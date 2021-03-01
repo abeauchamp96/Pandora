@@ -42,7 +42,7 @@ stages:
             arguments: '--configuration $(buildConfiguration)'
 
 - stage: Package_Pandora
-  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
   dependsOn: Build_nugets
   displayName: 'Package Pandora'
   jobs:
@@ -105,7 +105,7 @@ stages:
           artifact: pandora
 
 - stage: Release
-  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
   dependsOn: 
     - Build_nugets
     - Package_Pandora
