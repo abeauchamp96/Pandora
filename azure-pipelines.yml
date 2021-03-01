@@ -70,7 +70,7 @@ stages:
           displayName: 'Delete all files'
           inputs:
             SourceFolder: $(Build.ArtifactStagingDirectory)
-            Contents: !(*.zip)
+            Contents: '!(*.zip)'
             RemoveSourceFolder: true
         - task: DotnetCoreCLI@2
           displayName: 'package nugets'
