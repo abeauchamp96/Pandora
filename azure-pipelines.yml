@@ -1,10 +1,14 @@
 name: $(Build.DefinitionName).$(Build.SourceBranchName).$(Date:yyyyMMdd).$(Rev:r)
 
-pool: 'Waves'
+pool: 'Hyrule'
 
 trigger:
 - develop
 - master
+
+variables:
+  nugetPath: '**/*.csproj'
+  pandora: 'Pandora-0.1.0'
 
 stages:
 - stage: Build_nugets
@@ -13,7 +17,6 @@ stages:
     - job: Build
       displayName: 'Build'
       variables:
-        projects: '**/*.csproj'
         unitTestProjects: '**/*.Tests.csproj'
         buildConfiguration: 'Release'
       steps:
@@ -21,14 +24,14 @@ stages:
           displayName: 'Restore packages'
           inputs:
             command: restore
-            projects: $(projects)
+            projects: $(nugetPath)
             feedsToUse: select
             vstsFeed: 'pulsewave/pandora'
         - task: DotNetCoreCLI@2
           displayName: 'Compile the solution'
           inputs:
             command: build
-            projects: $(projects)
+            projects: $(nugetPath)
             arguments: '--configuration $(buildConfiguration)'
         - task: DotNetCoreCLI@2
           displayName: 'Run unit tests'
@@ -36,3 +39,76 @@ stages:
             command: test
             projects: $(unitTestProjects)
             arguments: '--configuration $(buildConfiguration)'
+
+- stage: Package_Pandora
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'develop'))
+  dependsOn: Build_nugets
+  displayName: 'Package Pandora'
+  jobs:
+    - job: Package
+      displayName: 'Package'
+      steps:
+        - task: CopyFiles@2
+          displayName: 'Copy snippets, templates, etc...'
+          inputs:
+            SourceFolder: $(SystemDefaultWorkingDirectory)
+            Contents: |
+              **\snippets\**
+              **\templates\**
+              changelog.md
+            TargetFolder: $(Build.ArtifactStagingDirectory)
+            OverWrite: true
+        - task: ArchiveFiles@2
+          displayName: 'Zip the folder'
+          inputs:
+            rootFolderOrFile: $(Build.ArtifactStagingDirectory)
+            includeRootFolder: false
+            archiveType: zip
+            archiveFile: $(Build.ArtifactStagingDirectory)/$(pandora).zip
+            replaceExistingArchive: true
+        - task: DeleteFiles@1
+          displayName: 'Delete all files'
+          inputs:
+            SourceFolder: $(Build.ArtifactStagingDirectory)
+            Contents: '!(*.zip)'
+            RemoveSourceFolder: true
+        - task: DotnetCoreCLI@2
+          displayName: 'package nugets'
+          inputs:
+            command: 'pack'
+            packagesToPack: $(nugetPath)
+            includesymbols: true
+            includesource: true
+            versioningScheme: 'off'
+        - task: PublishSymbols@2
+          displayName: 'publish pdb files'
+          inputs:
+            SearchPattern: '**/bin/**/*.pdb'
+            SymbolServerType: 'TeamServices'
+        - task: CopyFiles@2
+          displayName: 'Copy nuget packages to staging directory'
+          inputs:
+            Contents: |
+              **/*.nupkg
+              **/*.snupkg
+              !**/*symbols.nupkg
+            TargetFolder: $(Build.ArtifactStagingDirectory)/nuget
+            flattenFolders: true
+            overWrite: true
+        - task: CopyFiles@2
+          displayName: 'Copy symbols packages to staging symbols directory'
+          inputs:
+            Contents: |
+              **/*symbols.nupkg
+          TargetFolder: '$(Build.ArtifactStagingDirectory)/symbols'
+          flattenFolders: true
+          overWrite: true
+        - publish: $(Build.ArtifactStagingDirectory)/nuget
+          displayName: 'Publish nugets'
+          artifact: nuget
+        - publish: $(Build.ArtifactStagingDirectory)/symbols
+          displayName: 'Publish symbols'
+          artifact: symbols
+        - publish: $(Build.ArtifactStagingDirectory)/$(pandora).zip
+          displayName: 'Publish Pandora'
+          artifact: pandora
