@@ -92,17 +92,16 @@ stages:
               **/*.nupkg
               **/*.snupkg
               !**/*symbols.nupkg
-            TargetFolder: $(Build.ArtifactStagingDirectory)/nuget
+            TargetFolder: '$(Build.ArtifactStagingDirectory)/nuget'
+            OverWrite: true
             flattenFolders: true
-            overWrite: true
         - task: CopyFiles@2
           displayName: 'Copy symbols packages to staging symbols directory'
           inputs:
-            Contents: |
-              **/*symbols.nupkg
-          TargetFolder: '$(Build.ArtifactStagingDirectory)/symbols'
-          flattenFolders: true
-          overWrite: true
+            Contents: '**/*symbols.nupkg'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)/symbols'
+            OverWrite: true
+            flattenFolders: true
         - publish: $(Build.ArtifactStagingDirectory)/nuget
           displayName: 'Publish nugets'
           artifact: nuget
