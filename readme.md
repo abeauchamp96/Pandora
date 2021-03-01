@@ -52,6 +52,11 @@ Some snippets need the package installed to be used correctly.
 * XUnit snippets: [XUnit](https://xunit.net/)
 * Blazor snippets: [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor)
 
+#### Nuget
+
+On the Tools menu, select Options > NuGet Package Manager > Package Sources. Select the green plus in the upper-right corner and enter the name and source URL below.
+`https://pkgs.dev.azure.com/pulsewave/Pandora/_packaging/pandora/nuget/v3/index.json`
+
 ## Authors
 
 * Alexandre Beauchamp &#8212; main developer (<abeauchamp@pulsewave.dev>)

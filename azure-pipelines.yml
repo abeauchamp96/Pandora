@@ -4,7 +4,7 @@ pool: 'Hyrule'
 
 trigger:
 - develop
-- master
+- main
 
 variables:
   nugetPath: '**/*.csproj'
@@ -123,8 +123,10 @@ stages:
         - task: DotNetCoreCLI@2
           displayName: 'Publish the package'
           inputs:
-            command: push
+            command: 'push'
             packagesToPush: '$(Pipeline.Workspace)/nuget/Pandora.*.nupkg'
+            nuGetFeedType: 'internal'
+            publishVstsFeed: 'pulsewave/pandora'
         - task: GitHubRelease@1
           displayName: 'Create a release'
           inputs:
