@@ -70,7 +70,7 @@ stages:
           displayName: 'Delete all files'
           inputs:
             SourceFolder: $(Build.ArtifactStagingDirectory)
-            Contents: '!(*.zip)'
+            Contents: !(*.zip)
             RemoveSourceFolder: true
         - task: DotnetCoreCLI@2
           displayName: 'package nugets'
@@ -80,11 +80,6 @@ stages:
             includesymbols: true
             includesource: true
             versioningScheme: 'off'
-        - task: PublishSymbols@2
-          displayName: 'publish pdb files'
-          inputs:
-            SearchPattern: '**/bin/**/*.pdb'
-            SymbolServerType: 'TeamServices'
         - task: CopyFiles@2
           displayName: 'Copy nuget packages to staging directory'
           inputs:
@@ -92,6 +87,7 @@ stages:
               **/*.nupkg
               **/*.snupkg
               !**/*symbols.nupkg
+            SourceFolder: $(Build.ArtifactStagingDirectory)
             TargetFolder: '$(Build.ArtifactStagingDirectory)/nuget'
             OverWrite: true
             flattenFolders: true
@@ -99,6 +95,7 @@ stages:
           displayName: 'Copy symbols packages to staging symbols directory'
           inputs:
             Contents: '**/*symbols.nupkg'
+            SourceFolder: $(Build.ArtifactStagingDirectory)
             TargetFolder: '$(Build.ArtifactStagingDirectory)/symbols'
             OverWrite: true
             flattenFolders: true
