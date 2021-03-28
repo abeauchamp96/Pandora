@@ -13,11 +13,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- added
-  - ifield snippet: Insert a private field for an interface
-- changed
-  - field snippet: Now insert a private field for a class
-  - mock snippet: Now add a new() at the end of the mock field
+- ifield snippet: Insert a private field for an interface
+- package TestKit
+
+### Changed
+
+- field snippet: Now insert a private field for a class
+- mock snippet: Now add a new() at the end of the mock field
 
 ## 0.1.0 &#8212; 2021-02-28
 
@@ -90,3 +92,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added changelog template
   - Added readme template
   - Added MIT license
+- packages
+  - Added Utility package
