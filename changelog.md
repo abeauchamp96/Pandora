@@ -6,9 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Table of Contents
-- [0.1.0](#010--unreleased)
+- [0.1.0](#010--2021-02-28)
+- [0.2.0](#020--unreleased)
 
-## 0.1.0 &#8212; Unreleased
+## 0.2.0 &#8212; Unreleased
+
+### Added
+
+- added
+  - ifield snippet: Insert a private field for an interface
+- changed
+  - field snippet: Now insert a private field for a class
+  - mock snippet: Now add a new() at the end of the mock field
+
+## 0.1.0 &#8212; 2021-02-28
 
 ### Added
 
