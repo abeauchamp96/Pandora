@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandora.Utility", "Pandora.Utility\Pandora.Utility.csproj", "{EB8908B9-2440-435E-8B23-55E801FA9D09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandora.Utility", "Pandora.Utility\Pandora.Utility.csproj", "{EB8908B9-2440-435E-8B23-55E801FA9D09}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{43A101C1-EE49-4A02-822F-1B42D6EFEEA1}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{43A1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandora.Utility.Tests", "Pandora.Utility.Tests\Pandora.Utility.Tests.csproj", "{2A9C60E9-D365-4DD0-B59D-A71D03FD7FFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandora.TestKit", "Pandora.TestKit\Pandora.TestKit.csproj", "{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,10 @@ Global
 		{2A9C60E9-D365-4DD0-B59D-A71D03FD7FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A9C60E9-D365-4DD0-B59D-A71D03FD7FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A9C60E9-D365-4DD0-B59D-A71D03FD7FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
