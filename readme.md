@@ -7,7 +7,7 @@
 
 <div align="center">
 
-  ![Azure DevOps builds (branch master)](https://img.shields.io/azure-devops/build/pulsewave/Pandora/1/master?label=master%20build%20&logo=master%20build)
+  ![Azure DevOps builds (branch main)](https://img.shields.io/azure-devops/build/pulsewave/Pandora/1/main?label=main%20build%20&logo=main%20build)
   ![Azure DevOps builds (branch develop)](https://img.shields.io/azure-devops/build/pulsewave/Pandora/1/develop?label=develop%20build%20&logo=develop%20build)
   ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/abeauchamp96/Pandora?color=teal&sort=semver&include_prereleases)
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./license.md)
