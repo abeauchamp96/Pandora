@@ -6,7 +6,6 @@ using System;
 
 namespace Pandora.TestKit.Mocks
 {
-
     public sealed class ServiceScopeMock : AbstractMock<IServiceScope>
     {
         public void GivenAServiceProvider(IServiceProvider serviceProvider)

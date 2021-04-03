@@ -2,11 +2,9 @@
 // Licensed under the MIT license.
 
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Pandora.TestKit.Mocks
 {
-
     public sealed class ServiceScopeFactoryMock : AbstractMock<IServiceScopeFactory>
     {
         public void GivenAServiceScope(IServiceScope serviceScope)
