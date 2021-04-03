@@ -80,7 +80,7 @@ csharp_style_expression_bodied_constructors = true
 csharp_style_expression_bodied_indexers = true
 csharp_style_expression_bodied_lambdas = true
 csharp_style_expression_bodied_local_functions = true
-csharp_style_expression_bodied_methods = true
+csharp_style_expression_bodied_methods = when_on_single_line
 csharp_style_expression_bodied_operators = true
 csharp_style_expression_bodied_properties = true
 
@@ -233,3 +233,6 @@ dotnet_diagnostic.SA1413.severity = none
 
 # SA1116: Split parameters should start on line after declaration
 dotnet_diagnostic.SA1116.severity = none
+
+# IDE0022: Use expression body for methods
+dotnet_diagnostic.IDE0022.severity = suggestion
