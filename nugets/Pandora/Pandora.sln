@@ -9,12 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{43A1
 	ProjectSection(SolutionItems) = preProject
 		..\..\.editorconfig = ..\..\.editorconfig
 		..\..\.gitignore = ..\..\.gitignore
+		..\..\changelog.md = ..\..\changelog.md
 		..\..\stylecop.json = ..\..\stylecop.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandora.Utility.Tests", "Pandora.Utility.Tests\Pandora.Utility.Tests.csproj", "{2A9C60E9-D365-4DD0-B59D-A71D03FD7FFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandora.TestKit", "Pandora.TestKit\Pandora.TestKit.csproj", "{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandora.TestKit", "Pandora.TestKit\Pandora.TestKit.csproj", "{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - ifield snippet: Insert a private field for an interface
 - package TestKit
+	- ServiceProviderBuilder
+	- Logger extensions
+	- AbstractMock
 
 ### Changed
 
