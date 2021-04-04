@@ -120,13 +120,14 @@ stages:
         - download: current
           displayName: 'Download nugets'
           artifact: nuget
-        - task: DotNetCoreCLI@2
-          displayName: 'Publish the package'
+        - task: NuGetCommand@2
+          displayName: 'Publish the packages'
           inputs:
             command: 'push'
             packagesToPush: '$(Pipeline.Workspace)/nuget/Pandora.*.nupkg'
             nuGetFeedType: 'internal'
             publishVstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
+            allowPackageConflicts: true
         - task: GitHubRelease@1
           displayName: 'Create a release'
           inputs:
