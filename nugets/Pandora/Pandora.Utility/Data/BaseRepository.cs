@@ -3,7 +3,7 @@
 
 using System.Data;
 
-namespace Pandora.Data
+namespace Pandora.Utility.Data
 {
     public abstract class BaseRepository
     {

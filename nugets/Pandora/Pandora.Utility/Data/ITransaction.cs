@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Alexandre Beauchamp. All rights reserved.
 // Licensed under the MIT license.
 
-namespace Pandora.Data
+namespace Pandora.Utility.Data
 {
     public interface ITransaction
     {
