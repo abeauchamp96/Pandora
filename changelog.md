@@ -7,9 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Table of Contents
 - [0.1.0](#010--2021-02-28)
-- [0.2.0](#020--unreleased)
+- [0.2.0](#020--2021-04-04)
 
-## 0.2.0 &#8212; Unreleased
+## 0.2.0 &#8212; 2021-04-04
 
 ### Added
 
@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 	- ServiceProviderBuilder
 	- Logger extensions
 	- AbstractMock
+- package Utility
+  - IDataSource
+  - BaseRepository
+  - ITransaction
 
 ### Changed
 
