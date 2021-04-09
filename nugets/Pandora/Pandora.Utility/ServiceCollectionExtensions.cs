@@ -3,7 +3,9 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Pandora.Utility.Helpers;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Pandora.Utility.Tests")]
 namespace Pandora.Utility
 {
     public static class ServiceCollectionExtensions

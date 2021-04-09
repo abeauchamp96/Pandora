@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pandora.TestKit\Pandora.TestKit.csproj" />
     <ProjectReference Include="..\Pandora.Utility\Pandora.Utility.csproj" />
   </ItemGroup>
 
