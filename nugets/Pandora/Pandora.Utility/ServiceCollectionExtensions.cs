@@ -3,6 +3,7 @@
 
 using Microsoft.Extensions.DependencyInjection;
 using Pandora.Utility.Helpers;
+using Pandora.Utility.Uptimes;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Pandora.Utility.Tests")]
@@ -19,7 +20,8 @@ namespace Pandora.Utility
                 .AddTransient<IFileHelper, FileHelper>()
                 .AddTransient<IFileReaderHelper, FileReaderHelper>()
                 .AddTransient<IFileWriterHelper, FileWriterHelper>()
-                .AddTransient<IPathHelper, PathHelper>();
+                .AddTransient<IPathHelper, PathHelper>()
+                .AddTransient<IUptimeFormatter, UptimeFormatter>();
         }
     }
 }
