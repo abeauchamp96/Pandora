@@ -5,7 +5,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace Pandora.Utility.Uptimes
+namespace Pandora.Utility
 {
     public class UptimeFormatterTests
     {

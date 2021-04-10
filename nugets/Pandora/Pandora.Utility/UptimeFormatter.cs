@@ -6,7 +6,7 @@ using NodaTime.Extensions;
 using System;
 using System.Linq;
 
-namespace Pandora.Utility.Uptimes
+namespace Pandora.Utility
 {
     internal sealed class UptimeFormatter : IUptimeFormatter
     {

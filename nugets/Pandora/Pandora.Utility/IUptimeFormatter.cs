@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Pandora.Utility.Uptimes
+namespace Pandora.Utility
 {
     public interface IUptimeFormatter
     {
