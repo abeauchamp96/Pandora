@@ -239,3 +239,9 @@ dotnet_diagnostic.SA0001.severity = none
 
 # IDE0022: Use expression body for methods
 dotnet_diagnostic.IDE0022.severity = suggestion
+
+# SA1128: constructor initializers should be on their own line
+dotnet_diagnostic.SA1128.severity = none
+
+# SA1503: Brace should not be omitted
+dotnet_diagnostic.SA1503.severity = none
