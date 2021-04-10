@@ -16,12 +16,12 @@ namespace Pandora.Utility
 
         private readonly DateTimeOffset currentTime = new(new DateTime(2021, 08, 10));
         private readonly DateTimeOffset elapsedDatetime = new(new DateTime(2021, 08, 09));
-        private readonly IUptimeRetriever<UptimeMock> retriever;
+        private readonly IUptimeRetriever<FakeUptime> retriever;
 
         public UptimeRetrieverTests()
         {
             this.uptimeMock.GivenAnElapsedDateTime(this.elapsedDatetime);
-            this.retriever = new UptimeRetriever<UptimeMock>(this.uptimeMock.Instance, this.uptimeFormatterMock.Instance);
+            this.retriever = new UptimeRetriever<FakeUptime>(this.uptimeMock.Instance, this.uptimeFormatterMock.Instance);
         }
 
         [Fact]

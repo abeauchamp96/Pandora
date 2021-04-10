@@ -6,12 +6,12 @@ using System;
 
 namespace Pandora.Utility
 {
-    internal sealed class UptimeRetriever<T> : IUptimeRetriever<T> where T : class
+    internal sealed class UptimeRetriever<TUptime> : IUptimeRetriever<TUptime> where TUptime : class, IUptime<TUptime>
     {
-        private readonly IUptime<T> uptime;
+        private readonly IUptime<TUptime> uptime;
         private readonly IUptimeFormatter uptimeFormatter;
 
-        public UptimeRetriever(IUptime<T> uptime, IUptimeFormatter uptimeFormatter)
+        public UptimeRetriever(IUptime<TUptime> uptime, IUptimeFormatter uptimeFormatter)
         {
             this.uptime = uptime;
             this.uptimeFormatter = uptimeFormatter;

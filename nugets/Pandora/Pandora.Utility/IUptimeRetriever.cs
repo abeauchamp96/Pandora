@@ -5,7 +5,7 @@ using System;
 
 namespace Pandora.Utility
 {
-    public interface IUptimeRetriever<T> where T : class
+    public interface IUptimeRetriever<TUptime> where TUptime : class, IUptime<TUptime>
     {
         string RetrieveFormattedUptime(DateTimeOffset currentTime);
     }
