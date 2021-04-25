@@ -12,9 +12,7 @@ namespace Pandora.Utility
         private readonly IUptimeFormatter formatter;
 
         public UptimeFormatterTests()
-        {
-            this.formatter = new UptimeFormatter();
-        }
+            => this.formatter = new UptimeFormatter();
 
         [Theory]
         [MemberData(nameof(GetFormattedUptimes))]

@@ -76,7 +76,7 @@ csharp_style_var_when_type_is_apparent = false
 
 # Expression-bodied members
 csharp_style_expression_bodied_accessors = true
-csharp_style_expression_bodied_constructors = true
+csharp_style_expression_bodied_constructors = when_on_single_line
 csharp_style_expression_bodied_indexers = true
 csharp_style_expression_bodied_lambdas = true
 csharp_style_expression_bodied_local_functions = true
@@ -245,3 +245,6 @@ dotnet_diagnostic.SA1128.severity = none
 
 # SA1503: Brace should not be omitted
 dotnet_diagnostic.SA1503.severity = none
+
+# IDE0021: Use expression body for constructors
+dotnet_diagnostic.IDE0021.severity = warning
