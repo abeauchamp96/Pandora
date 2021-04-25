@@ -6,8 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Table of Contents
-- [0.1.0](#010--2021-02-28)
+- [0.3.0](#030--2021-04-25)
 - [0.2.0](#020--2021-04-04)
+- [0.1.0](#010--2021-02-28)
+
+## 0.3.0 &#8212; 2021-04-25
+
+### Added
+
+- added an uptimeRetriever which retrieve an uptime for something
+- added an instanceValidator for testing (mostly use with abstractMock)
+- added LiteDB data source and base repository
+
+### Changed
+
+- The IDataSource and BaseRepository has been move to Pandora.Utility.Data.Sql namespace
 
 ## 0.2.0 &#8212; 2021-04-04
 
