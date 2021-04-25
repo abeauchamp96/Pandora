@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandora.Utility.Tests", "Pa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandora.TestKit", "Pandora.TestKit\Pandora.TestKit.csproj", "{6A1E97B5-E1DE-4A9D-A04F-5D94C166D00A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandora.TestKit.Tests", "Pandora.TestKit.Tests\Pandora.TestKit.Tests.csproj", "{BFA120C2-643C-4750-A073-85C93223A62B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandora.TestKit.Tests", "Pandora.TestKit.Tests\Pandora.TestKit.Tests.csproj", "{BFA120C2-643C-4750-A073-85C93223A62B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
