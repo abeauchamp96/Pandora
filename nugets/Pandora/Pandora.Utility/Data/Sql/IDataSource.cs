@@ -3,7 +3,7 @@
 
 using System.Data;
 
-namespace Pandora.Utility.Data
+namespace Pandora.Utility.Data.Sql
 {
     public interface IDataSource
     {
