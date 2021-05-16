@@ -2,55 +2,68 @@ name: $(Build.DefinitionName).$(Build.SourceBranchName).$(Date:yyyyMMdd).$(Rev:r
 
 pool: 'Hyrule'
 
+pr:
+- develop
+- main
+
 trigger:
 - develop
 - main
 
 variables:
-  nugetPath: '**/*.csproj'
-  version: 0.3.0
+  version: 0.4.0
   pandora: 'Pandora-$(version)'
 
 stages:
-- stage: Build_nugets
-  displayName: 'Build nugets'
+- stage: Build_Pandora
+  displayName: 'Build Pandora'
   jobs:
     - job: Build
       displayName: 'Build'
       variables:
-        unitTestProjects: '**/*.Tests.csproj'
-        buildConfiguration: 'Release'
+        buildConfiguration: '--configuration Release'
+        projectsPath: '**/*.csproj'
       steps:
         - task: DotNetCoreCLI@2
           displayName: 'Restore packages'
           inputs:
-            command: 'restore'
-            projects: '$(nugetPath)'
+            command: restore
+            projects: $(projectsPath)
             feedsToUse: 'select'
             vstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
         - task: DotNetCoreCLI@2
-          displayName: 'Compile the solution'
+          displayName: 'Compile all projects'
           inputs:
             command: build
-            projects: $(nugetPath)
-            arguments: '--configuration $(buildConfiguration)'
+            projects: $(projectsPath)
+            arguments: '$(buildConfiguration)'
         - task: DotNetCoreCLI@2
           displayName: 'Run unit tests'
           inputs:
             command: test
-            projects: $(unitTestProjects)
-            arguments: '--configuration $(buildConfiguration)'
+            projects: '**/*.Tests.csproj'
+            arguments: '$(buildConfiguration) --no-build'
+        - task: CopyFiles@2
+          displayName: 'Copy nuget files to binaries folder'
+          inputs:
+            Contents: '**/*.nupkg'
+            SourceFolder: $(System.DefaultWorkingDirectory)
+            TargetFolder: $(Build.BinariesDirectory)
+            CleanTargetFolder: true
+            OverWrite: true
 
 - stage: Package_Pandora
   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
-  dependsOn: Build_nugets
+  dependsOn: Build_Pandora
   displayName: 'Package Pandora'
+  variables:
+    pandoraPackagePath: $(Build.ArtifactStagingDirectory)/$(pandora).zip
   jobs:
     - job: Package
       displayName: 'Package'
       steps:
         - task: CopyFiles@2
-          displayName: 'Copy snippets, templates, etc...'
+          displayName: 'Copy snippets and templates to staging directory'
           inputs:
             SourceFolder: $(System.DefaultWorkingDirectory)
             Contents: |
@@ -60,84 +73,75 @@ stages:
             TargetFolder: $(Build.ArtifactStagingDirectory)
             OverWrite: true
         - task: ArchiveFiles@2
-          displayName: 'Zip the folder'
+          displayName: 'Zip the package'
           inputs:
             rootFolderOrFile: $(Build.ArtifactStagingDirectory)
             includeRootFolder: false
             archiveType: zip
-            archiveFile: $(Build.ArtifactStagingDirectory)/$(pandora).zip
+            archiveFile: $(pandoraPackagePath)
             replaceExistingArchive: true
-        - task: DotnetCoreCLI@2
-          displayName: 'package nugets'
-          inputs:
-            command: 'pack'
-            packagesToPack: $(nugetPath)
-            includesymbols: true
-            includesource: true
-            versioningScheme: 'off'
+        - publish: $(pandoraPackagePath)
+          displayName: 'Publish Pandora Package'
+          artifact: pandora
+
+- stage: Package_Pandora_nugets
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+  dependsOn: Build_Pandora
+  displayName: 'Package Pandora nugets'
+  variables:
+    pandoraNugetsPath: $(Build.ArtifactStagingDirectory)/nuget
+  jobs:
+    - job: Package_nugets
+      displayName: 'Package nugets'
+      steps:
         - task: CopyFiles@2
           displayName: 'Copy nuget packages to staging directory'
           inputs:
             Contents: |
               **/*.nupkg
-              **/*.snupkg
-              !**/*symbols.nupkg
-            SourceFolder: $(Build.ArtifactStagingDirectory)
-            TargetFolder: '$(Build.ArtifactStagingDirectory)/nuget'
+            SourceFolder: $(Build.BinariesDirectory)
+            TargetFolder: $(pandoraNugetsPath)
             OverWrite: true
             flattenFolders: true
-        - task: CopyFiles@2
-          displayName: 'Copy symbols packages to staging symbols directory'
-          inputs:
-            Contents: '**/*symbols.nupkg'
-            SourceFolder: $(Build.ArtifactStagingDirectory)
-            TargetFolder: '$(Build.ArtifactStagingDirectory)/symbols'
-            OverWrite: true
-            flattenFolders: true
-        - publish: $(Build.ArtifactStagingDirectory)/nuget
+        - publish: $(pandoraNugetsPath)
           displayName: 'Publish nugets'
           artifact: nuget
-        - publish: $(Build.ArtifactStagingDirectory)/symbols
-          displayName: 'Publish symbols'
-          artifact: symbols
-        - publish: $(Build.ArtifactStagingDirectory)/$(pandora).zip
-          displayName: 'Publish Pandora'
-          artifact: pandora
 
 - stage: Release
   condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
   dependsOn: 
-    - Build_nugets
+    - Build_Pandora
     - Package_Pandora
-  displayName: 'Release Pandora'
+    - Package_Pandora_nugets
+  displayName: 'Pandora release'
   jobs:
     - job: 'Release'
-      displayName: 'Release Pandora'
+      displayName: 'Pandora release'
       steps:
+        - download: current
+          displayName: 'Download Pandora nugets'
+          artifact: nuget
+        - task: NuGetCommand@2
+          displayName: 'Publish the nugets'
+          inputs:
+            command: push
+            packagesToPush: '$(Pipeline.Workspace)/nuget/Pandora.*.nupkg'
+            nuGetFeedType: internal
+            publishVstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
+            allowPackageConflicts: true
         - download: current
           displayName: 'Download Pandora'
           artifact: pandora
-        - download: current
-          displayName: 'Download nugets'
-          artifact: nuget
-        - task: NuGetCommand@2
-          displayName: 'Publish the packages'
-          inputs:
-            command: 'push'
-            packagesToPush: '$(Pipeline.Workspace)/nuget/Pandora.*.nupkg'
-            nuGetFeedType: 'internal'
-            publishVstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
-            allowPackageConflicts: true
         - task: GitHubRelease@1
           displayName: 'Create a release'
           inputs:
             gitHubConnection: 'github'
             repositoryName: 'abeauchamp96/Pandora'
-            action: 'create'
-            target: '$(Build.SourceVersion)'
-            tagSource: 'userSpecifiedTag'
+            action: create
+            target: $(Build.SourceVersion)
+            tagSource: userSpecifiedTag
             tag: 'v$(version)'
-            title: '$(pandora)'
+            title: $(pandora)
             releaseNotesFilePath: '$(System.DefaultWorkingDirectory)/changelog.md'
             assets: '$(Pipeline.Workspace)/pandora/$(pandora).zip'
             changeLogCompareToRelease: 'lastFullRelease'
