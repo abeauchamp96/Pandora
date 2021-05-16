@@ -43,6 +43,14 @@ stages:
             command: test
             projects: '**/*.Tests.csproj'
             arguments: '$(buildConfiguration) --no-build'
+        - task: CopyFiles@2
+          displayName: 'Copy nuget files to binaries folder'
+          inputs:
+            Contents: '**/*.nupkg'
+            SourceFolder: $(System.DefaultWorkingDirectory)
+            TargetFolder: $(Build.BinariesDirectory)
+            CleanTargetFolder: true
+            OverWrite: true
 
 - stage: Package_Pandora
   #condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
@@ -91,7 +99,7 @@ stages:
           inputs:
             Contents: |
               **/*.nupkg
-            SourceFolder: $(System.DefaultWorkingDirectory)
+            SourceFolder: $(Build.BinariesDirectory)
             TargetFolder: $(pandoraNugetsPath)
             OverWrite: true
             flattenFolders: true
