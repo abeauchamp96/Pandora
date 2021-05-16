@@ -1,12 +1,10 @@
 ﻿// Copyright (c) Alexandre Beauchamp. All rights reserved.
 // Licensed under the MIT license.
 
-using LiteDB;
-
 namespace Pandora.Utility.Data.NoSql
 {
-    public interface ILiteDbDataSource
+    public interface INoSqlDataSource<TDatabase> where TDatabase : class
     {
-        ILiteDatabase Database { get; }
+        TDatabase Database { get; }
     }
 }
