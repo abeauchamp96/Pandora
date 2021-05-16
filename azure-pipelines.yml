@@ -13,6 +13,8 @@ trigger:
 variables:
   version: 0.4.0
   pandora: 'Pandora-$(version)'
+  buildConfiguration: '--configuration Release'
+  projectsPath: '**/*.csproj'
 
 stages:
 - stage: Build_Pandora
@@ -20,9 +22,6 @@ stages:
   jobs:
     - job: Build
       displayName: 'Build'
-      variables:
-        buildConfiguration: '--configuration Release'
-        projectsPath: '**/*.csproj'
       steps:
         - task: DotNetCoreCLI@2
           displayName: 'Restore packages'
@@ -43,14 +42,6 @@ stages:
             command: test
             projects: '**/*.Tests.csproj'
             arguments: '$(buildConfiguration) --no-build'
-        - task: CopyFiles@2
-          displayName: 'Copy nuget files to binaries folder'
-          inputs:
-            Contents: '*.nupkg'
-            SourceFolder: $(System.DefaultWorkingDirectory)
-            TargetFolder: $(Build.BinariesDirectory)
-            CleanTargetFolder: true
-            OverWrite: true
 
 - stage: Package_Pandora
   #condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
@@ -63,7 +54,7 @@ stages:
       displayName: 'Package'
       steps:
         - task: CopyFiles@2
-          displayName: 'Copy snippets, templates, etc... to staging directory'
+          displayName: 'Copy snippets and templates to staging directory'
           inputs:
             SourceFolder: $(System.DefaultWorkingDirectory)
             Contents: |
@@ -94,6 +85,13 @@ stages:
     - job: Package_nugets
       displayName: 'Package nugets'
       steps:
+        - task: DotNetCoreCLI@2
+          displayName: 'Package nugets'
+          inputs:
+            command: pack
+            arguments: '$(buildConfiguration) --no-build --output $(Build.BinariesDirectory)'
+            versioningScheme: off
+            packagesToPack: 
         - task: CopyFiles@2
           displayName: 'Copy nuget packages to staging directory'
           inputs:

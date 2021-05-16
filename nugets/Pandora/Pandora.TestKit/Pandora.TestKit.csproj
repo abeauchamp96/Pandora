@@ -9,7 +9,6 @@
     <Description>Package which contains tools for testing</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/abeauchamp96/Pandora</PackageProjectUrl>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
