@@ -10,32 +10,63 @@ trigger:
 - develop
 - main
 
+variables:
+  version: 0.4.0
+  pandora: 'Pandora-$(version)'
+
 stages:
-  - stage: Build_Pandora
-    displayName: 'Build Pandora'
-    jobs:
-      - job: Build
-        displayName: 'Build'
-        variables:
-          buildConfiguration: '--configuration Release'
-          projectsPath: '**/*.csproj'
-        steps:
-          - task: DotNetCoreCLI@2
-            displayName: 'Restore packages'
-            inputs:
-              command: restore
-              projects: $(projectsPath)
-              feedsToUse: 'select'
-              vstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
-          - task: DotNetCoreCLI@2
-            displayName: 'Compile all projects'
-            inputs:
-              command: build
-              projects: $(projectsPath)
-              arguments: '$(buildConfiguration)'
-          - task: DotNetCoreCLI@2
-            displayName: 'Run unit tests'
-            inputs:
-              command: test
-              projects: '**/*.Tests.csproj'
-              arguments: '$(buildConfiguration)'
+- stage: Build_Pandora
+  displayName: 'Build Pandora'
+  jobs:
+    - job: Build
+      displayName: 'Build'
+      variables:
+        buildConfiguration: '--configuration Release'
+        projectsPath: '**/*.csproj'
+      steps:
+        - task: DotNetCoreCLI@2
+          displayName: 'Restore packages'
+          inputs:
+            command: restore
+            projects: $(projectsPath)
+            feedsToUse: 'select'
+            vstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
+        - task: DotNetCoreCLI@2
+          displayName: 'Compile all projects'
+          inputs:
+            command: build
+            projects: $(projectsPath)
+            arguments: '$(buildConfiguration)'
+        - task: DotNetCoreCLI@2
+          displayName: 'Run unit tests'
+          inputs:
+            command: test
+            projects: '**/*.Tests.csproj'
+            arguments: '$(buildConfiguration)'
+
+- stage: Package_Pandora
+  #condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+  dependsOn: Build_Pandora
+  displayName: 'Package Pandora'
+  jobs:
+    - job: Package
+      displayName: 'Package'
+      steps:
+        - task: CopyFiles@2
+          displayName: 'Copy snippets, templates, etc...'
+          inputs:
+            SourceFolder: $(System.DefaultWorkingDirectory)
+            Contents: |
+              **\snippets\**
+              **\templates\**
+              changelog.md
+            TargetFolder: $(Build.ArtifactStagingDirectory)
+            OverWrite: true
+        - task: ArchiveFiles@2
+          displayName: 'Zip the package'
+          inputs:
+            rootFolderOrFile: $(Build.ArtifactStagingDirectory)
+            includeRootFolder: false
+            archiveType: zip
+            archiveFile: $(Build.ArtifactStagingDirectory)/$(pandora).zip
+            replaceExistingArchive: true
