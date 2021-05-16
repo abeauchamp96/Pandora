@@ -89,7 +89,7 @@ stages:
           displayName: 'Package nugets'
           inputs:
             command: pack
-            arguments: '$(buildConfiguration) --no-build --output $(Build.BinariesDirectory)'
+            arguments: '$(buildConfiguration) --output $(Build.BinariesDirectory)'
             versioningScheme: off
             packagesToPack: 
         - task: CopyFiles@2
