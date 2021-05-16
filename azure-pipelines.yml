@@ -42,18 +42,20 @@ stages:
           inputs:
             command: test
             projects: '**/*.Tests.csproj'
-            arguments: '$(buildConfiguration)'
+            arguments: '$(buildConfiguration) --no-build'
 
 - stage: Package_Pandora
   #condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
   dependsOn: Build_Pandora
   displayName: 'Package Pandora'
+  variables:
+    pandoraPackagePath: $(Build.ArtifactStagingDirectory)/$(pandora).zip
   jobs:
     - job: Package
       displayName: 'Package'
       steps:
         - task: CopyFiles@2
-          displayName: 'Copy snippets, templates, etc...'
+          displayName: 'Copy snippets, templates, etc... to staging directory'
           inputs:
             SourceFolder: $(System.DefaultWorkingDirectory)
             Contents: |
@@ -68,5 +70,31 @@ stages:
             rootFolderOrFile: $(Build.ArtifactStagingDirectory)
             includeRootFolder: false
             archiveType: zip
-            archiveFile: $(Build.ArtifactStagingDirectory)/$(pandora).zip
+            archiveFile: $(pandoraPackagePath)
             replaceExistingArchive: true
+        - publish: $(pandoraPackagePath)
+          displayName: 'Publish Pandora Package'
+          artifact: pandora
+
+- stage: Package_Pandora_nugets
+  #condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+  dependsOn: Build_Pandora
+  displayName: 'Package Pandora nugets'
+  variables:
+    pandoraNugetsPath: $(Build.ArtifactStagingDirectory)/nuget
+  jobs:
+    - job: Package_nugets
+      displayName: 'Package nugets'
+      steps:
+        - task: CopyFiles@2
+          displayName: 'Copy nuget packages to staging directory'
+          inputs:
+            Contents: |
+              **/*.nupkg
+            SourceFolder: $(Build.ArtifactStagingDirectory)
+            TargetFolder: $(pandoraNugetsPath)
+            OverWrite: true
+            flattenFolders: true
+        - publish: $(pandoraNugetsPath)
+          displayName: 'Publish nugets'
+          artifact: nuget
