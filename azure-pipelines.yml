@@ -91,7 +91,7 @@ stages:
           inputs:
             Contents: |
               **/*.nupkg
-            SourceFolder: $(Build.ArtifactStagingDirectory)
+            SourceFolder: $(System.DefaultWorkingDirectory)
             TargetFolder: $(pandoraNugetsPath)
             OverWrite: true
             flattenFolders: true
