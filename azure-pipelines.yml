@@ -46,7 +46,7 @@ stages:
         - task: CopyFiles@2
           displayName: 'Copy nuget files to binaries folder'
           inputs:
-            Contents: '**/*.nupkg'
+            Contents: '*.nupkg'
             SourceFolder: $(System.DefaultWorkingDirectory)
             TargetFolder: $(Build.BinariesDirectory)
             CleanTargetFolder: true
