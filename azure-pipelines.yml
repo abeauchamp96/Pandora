@@ -53,7 +53,7 @@ stages:
             OverWrite: true
 
 - stage: Package_Pandora
-  #condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
   dependsOn: Build_Pandora
   displayName: 'Package Pandora'
   variables:
@@ -85,7 +85,7 @@ stages:
           artifact: pandora
 
 - stage: Package_Pandora_nugets
-  #condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
   dependsOn: Build_Pandora
   displayName: 'Package Pandora nugets'
   variables:
@@ -106,3 +106,43 @@ stages:
         - publish: $(pandoraNugetsPath)
           displayName: 'Publish nugets'
           artifact: nuget
+
+- stage: Release
+  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
+  dependsOn: 
+    - Build_nugets
+    - Package_Pandora
+    - Package_Pandora_nugets
+  displayName: 'Pandora release'
+  jobs:
+    - job: 'Release'
+      displayName: 'Pandora release'
+      steps:
+        - download: current
+          displayName: 'Download Pandora nugets'
+          artifact: nuget
+        - task: NuGetCommand@2
+          displayName: 'Publish the nugets'
+          inputs:
+            command: push
+            packagesToPush: '$(Pipeline.Workspace)/nuget/Pandora.*.nupkg'
+            nuGetFeedType: internal
+            publishVstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
+            allowPackageConflicts: true
+        - download: current
+          displayName: 'Download Pandora'
+          artifact: pandora
+        - task: GitHubRelease@1
+          displayName: 'Create a release'
+          inputs:
+            gitHubConnection: 'github'
+            repositoryName: 'abeauchamp96/Pandora'
+            action: create
+            target: $(Build.SourceVersion)
+            tagSource: userSpecifiedTag
+            tag: 'v$(version)'
+            title: $(pandora)
+            releaseNotesFilePath: '$(System.DefaultWorkingDirectory)/changelog.md'
+            assets: '$(Pipeline.Workspace)/pandora/$(pandora).zip'
+            changeLogCompareToRelease: 'lastFullRelease'
+            changeLogType: 'commitBased'
