@@ -2,143 +2,40 @@ name: $(Build.DefinitionName).$(Build.SourceBranchName).$(Date:yyyyMMdd).$(Rev:r
 
 pool: 'Hyrule'
 
+pr:
+- develop
+- main
+
 trigger:
 - develop
 - main
 
-variables:
-  nugetPath: '**/*.csproj'
-  version: 0.3.0
-  pandora: 'Pandora-$(version)'
-
 stages:
-- stage: Build_nugets
-  displayName: 'Build nugets'
-  jobs:
-    - job: Build
-      displayName: 'Build'
-      variables:
-        unitTestProjects: '**/*.Tests.csproj'
-        buildConfiguration: 'Release'
-      steps:
-        - task: DotNetCoreCLI@2
-          displayName: 'Restore packages'
-          inputs:
-            command: 'restore'
-            projects: '$(nugetPath)'
-            feedsToUse: 'select'
-            vstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
-        - task: DotNetCoreCLI@2
-          displayName: 'Compile the solution'
-          inputs:
-            command: build
-            projects: $(nugetPath)
-            arguments: '--configuration $(buildConfiguration)'
-        - task: DotNetCoreCLI@2
-          displayName: 'Run unit tests'
-          inputs:
-            command: test
-            projects: $(unitTestProjects)
-            arguments: '--configuration $(buildConfiguration)'
-
-- stage: Package_Pandora
-  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
-  dependsOn: Build_nugets
-  displayName: 'Package Pandora'
-  jobs:
-    - job: Package
-      displayName: 'Package'
-      steps:
-        - task: CopyFiles@2
-          displayName: 'Copy snippets, templates, etc...'
-          inputs:
-            SourceFolder: $(System.DefaultWorkingDirectory)
-            Contents: |
-              **\snippets\**
-              **\templates\**
-              changelog.md
-            TargetFolder: $(Build.ArtifactStagingDirectory)
-            OverWrite: true
-        - task: ArchiveFiles@2
-          displayName: 'Zip the folder'
-          inputs:
-            rootFolderOrFile: $(Build.ArtifactStagingDirectory)
-            includeRootFolder: false
-            archiveType: zip
-            archiveFile: $(Build.ArtifactStagingDirectory)/$(pandora).zip
-            replaceExistingArchive: true
-        - task: DotnetCoreCLI@2
-          displayName: 'package nugets'
-          inputs:
-            command: 'pack'
-            packagesToPack: $(nugetPath)
-            includesymbols: true
-            includesource: true
-            versioningScheme: 'off'
-        - task: CopyFiles@2
-          displayName: 'Copy nuget packages to staging directory'
-          inputs:
-            Contents: |
-              **/*.nupkg
-              **/*.snupkg
-              !**/*symbols.nupkg
-            SourceFolder: $(Build.ArtifactStagingDirectory)
-            TargetFolder: '$(Build.ArtifactStagingDirectory)/nuget'
-            OverWrite: true
-            flattenFolders: true
-        - task: CopyFiles@2
-          displayName: 'Copy symbols packages to staging symbols directory'
-          inputs:
-            Contents: '**/*symbols.nupkg'
-            SourceFolder: $(Build.ArtifactStagingDirectory)
-            TargetFolder: '$(Build.ArtifactStagingDirectory)/symbols'
-            OverWrite: true
-            flattenFolders: true
-        - publish: $(Build.ArtifactStagingDirectory)/nuget
-          displayName: 'Publish nugets'
-          artifact: nuget
-        - publish: $(Build.ArtifactStagingDirectory)/symbols
-          displayName: 'Publish symbols'
-          artifact: symbols
-        - publish: $(Build.ArtifactStagingDirectory)/$(pandora).zip
-          displayName: 'Publish Pandora'
-          artifact: pandora
-
-- stage: Release
-  condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'main'))
-  dependsOn: 
-    - Build_nugets
-    - Package_Pandora
-  displayName: 'Release Pandora'
-  jobs:
-    - job: 'Release'
-      displayName: 'Release Pandora'
-      steps:
-        - download: current
-          displayName: 'Download Pandora'
-          artifact: pandora
-        - download: current
-          displayName: 'Download nugets'
-          artifact: nuget
-        - task: NuGetCommand@2
-          displayName: 'Publish the packages'
-          inputs:
-            command: 'push'
-            packagesToPush: '$(Pipeline.Workspace)/nuget/Pandora.*.nupkg'
-            nuGetFeedType: 'internal'
-            publishVstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
-            allowPackageConflicts: true
-        - task: GitHubRelease@1
-          displayName: 'Create a release'
-          inputs:
-            gitHubConnection: 'github'
-            repositoryName: 'abeauchamp96/Pandora'
-            action: 'create'
-            target: '$(Build.SourceVersion)'
-            tagSource: 'userSpecifiedTag'
-            tag: 'v$(version)'
-            title: '$(pandora)'
-            releaseNotesFilePath: '$(System.DefaultWorkingDirectory)/changelog.md'
-            assets: '$(Pipeline.Workspace)/pandora/$(pandora).zip'
-            changeLogCompareToRelease: 'lastFullRelease'
-            changeLogType: 'commitBased'
+  - stage: Build_Pandora
+    displayName: 'Build Pandora'
+    jobs:
+      - job: Build
+        displayName: 'Build'
+        variables:
+          buildConfiguration: '--configuration Release'
+          projectsPath: '**/*.csproj'
+        steps:
+          - task: DotNetCoreCLI@2
+            displayName: 'Restore packages'
+            inputs:
+              command: restore
+              projects: $(projectsPath)
+              feedsToUse: 'select'
+              vstsFeed: '1ef4c0cf-1819-4ee1-8807-d43cd89c12fe/ddbe434d-9f4f-404b-8ac2-fd37fda6529e'
+          - task: DotNetCoreCLI@2
+            displayName: 'Compile all projects'
+            inputs:
+              command: build
+              projects: $(projectsPath)
+              arguments: '$(buildConfiguration)'
+          - task: DotNetCoreCLI@2
+            displayName: 'Run unit tests'
+            inputs:
+              command: test
+              projects: '**/*.Tests.csproj'
+              arguments: '$(buildConfiguration)'
