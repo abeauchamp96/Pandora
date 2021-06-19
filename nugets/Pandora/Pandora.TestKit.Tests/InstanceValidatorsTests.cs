@@ -1,3 +1,6 @@
+// Copyright (c) Alexandre Beauchamp. All rights reserved.
+// Licensed under the MIT license.
+
 using FluentAssertions;
 using Xunit;
 
@@ -22,11 +25,11 @@ namespace Pandora.TestKit.Validators
         {
             var validators = InstanceValidator<int>.Build()
                 .WithValidation(x => x > 12)
-                .WithValidation(x => x.Should().Be(13));
+                .WithValidation(x => x == 13);
 
-            var result = validators.IsValid(13);
+            var result = validators.IsValid(14);
 
-            result.Should().BeTrue();
+            result.Should().BeFalse();
         }
     }
 }
