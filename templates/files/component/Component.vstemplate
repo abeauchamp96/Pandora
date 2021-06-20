@@ -1,0 +1,16 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Component.razor</DefaultName>
+    <Name>Razor component with code behind</Name>
+    <Description>An empty Razor Component with code behind definition</Description>
+    <TemplateGroupID>AspNetCore</TemplateGroupID>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <ShowByDefault>false</ShowByDefault>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.razor" ReplaceParameters="true">Component.razor</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.razor.cs" ReplaceParameters="true">Component.razor.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>
