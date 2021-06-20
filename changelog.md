@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added LoggerMock
 - Added Health API which contains an extensions to use a custom response writer
 - Added It.Is and It.IsAny snippet for unit tests
+- Added Enum file template
 
 ## 0.4.0 &#8212; 2021-05-16
 
