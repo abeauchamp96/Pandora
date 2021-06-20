@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added HasSingle as Linq extensions
+- Added TestBaseBuilder to permit build object for unit tests
 
 ## 0.4.0 &#8212; 2021-05-16
 

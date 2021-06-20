@@ -23,17 +23,6 @@ namespace Pandora.TestKit
             return (TBuilder)this;
         }
 
-        public TBuilder With(Action<TItem> decorate)
-        {
-            this.decorators.Add((item) =>
-            {
-                decorate(item);
-                return item;
-            });
-
-            return (TBuilder)this;
-        }
-
         public TBuilder With(Func<TItem, TItem> decorate)
         {
             this.decorators.Add(decorate);
