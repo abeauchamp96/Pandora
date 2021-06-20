@@ -5,11 +5,11 @@
     <Name>Enum</Name>
     <Description>An empty enum definition</Description>
     <ProjectType>CSharp</ProjectType>
-    <SortOrder>10</SortOrder>
+    <SortOrder>93</SortOrder>
     <Icon>__TemplateIcon.png</Icon>
   </TemplateData>
   <TemplateContent>
     <References />
-    <ProjectItem TargetFileName="$fileinputname$.cs" ReplaceParameters="true">Enum1.cs</ProjectItem>
+    <ProjectItem TargetFileName="$fileinputname$.cs" ReplaceParameters="true">Enum.cs</ProjectItem>
   </TemplateContent>
 </VSTemplate>
