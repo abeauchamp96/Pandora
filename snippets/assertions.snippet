@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Be</Title>
+      <Description>Insert Be assertion</Description>
+      <Shortcut>be</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>FluentAssertions</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>FluentAssertions</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="type decl">
+        <![CDATA[$Variable$.Should().Be($end$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>HaveCount</Title>
+      <Description>Insert HaveCount assertion</Description>
+      <Shortcut>havecount</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>FluentAssertions</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>FluentAssertions</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+        </Literal>
+        <Literal>
+          <ID>Count</ID>
+          <Default>1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="type decl">
+        <![CDATA[$Variable$.Should().HaveCount($Count$);$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BeTrue</Title>
+      <Description>Insert BeTrue assertion</Description>
+      <Shortcut>betrue</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>FluentAssertions</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>FluentAssertions</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="type decl">
+        <![CDATA[$Variable$.Should().BeTrue();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BeFalse</Title>
+      <Description>Insert BeFalse assertion</Description>
+      <Shortcut>befalse</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>FluentAssertions</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>FluentAssertions</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="type decl">
+        <![CDATA[$Variable$.Should().BeFalse();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BeNull</Title>
+      <Description>Insert BeNull assertion</Description>
+      <Shortcut>benull</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>FluentAssertions</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>FluentAssertions</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="type decl">
+        <![CDATA[$Variable$.Should().BeNull();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BeEmpty</Title>
+      <Description>Insert BeEmpty assertion</Description>
+      <Shortcut>beempty</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>FluentAssertions</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>FluentAssertions</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="type decl">
+        <![CDATA[$Variable$.Should().BeEmpty();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>BeNullOrEmpty</Title>
+      <Description>Insert BeNullOrEmpty assertion</Description>
+      <Shortcut>benullorempty</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Keywords>
+        <Keyword>C#</Keyword>
+        <Keyword>FluentAssertions</Keyword>
+      </Keywords>
+      <Author>Alexandre Beauchamp</Author>
+    </Header>
+    <Snippet>
+      <Imports>
+        <Import>
+          <Namespace>FluentAssertions</Namespace>
+        </Import>
+      </Imports>
+      <Declarations>
+        <Literal>
+          <ID>Variable</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="type decl">
+        <![CDATA[$Variable$.Should().BeNullOrEmpty();$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

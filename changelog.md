@@ -22,6 +22,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Health API which contains an extensions to use a custom response writer
 - Added It.Is and It.IsAny snippet for unit tests
 - Added Enum file template
+- Added Assertions snippets
+	- be: Insert the assert Should Be
+	- havecount: Insert the assert Should HaveCount
+	- benull: Insert the assert Should BeNull
+	- beempty: Insert the assert Should BeEmpty
+	- beemptyornull: Insert the assert Should BeEmptyOrNull
+	- betrue: Insert the assert Should BeTrue
+	- befalse: Insert the assert Should BeFalse
 
 ## 0.4.0 &#8212; 2021-05-16
 
