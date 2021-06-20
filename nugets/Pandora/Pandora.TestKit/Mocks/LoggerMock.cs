@@ -42,6 +42,6 @@ namespace Pandora.TestKit.Mocks
             => this.Mock.Verify(message, LogLevel.Critical);
 
         public void LogCriticalWasNotCalled(string message)
-            => this.Mock.Verify(message, LogLevel.Error, Times.Never());
+            => this.Mock.Verify(message, LogLevel.Critical, Times.Never());
     }
 }
