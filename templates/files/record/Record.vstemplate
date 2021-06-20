@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
   <TemplateData>
-    <DefaultName>Enum.cs</DefaultName>
-    <Name>Enum</Name>
-    <Description>An empty enum definition</Description>
+    <DefaultName>Record.cs</DefaultName>
+    <Name>Record</Name>
+    <Description>An empty record definition</Description>
     <ProjectType>CSharp</ProjectType>
-    <SortOrder>93</SortOrder>
+    <SortOrder>91</SortOrder>
     <Icon>__TemplateIcon.png</Icon>
   </TemplateData>
   <TemplateContent>
     <References />
-    <ProjectItem TargetFileName="$fileinputname$.cs" ReplaceParameters="true">Enum.cs</ProjectItem>
+    <ProjectItem TargetFileName="$fileinputname$.cs" ReplaceParameters="true">Record.cs</ProjectItem>
   </TemplateContent>
 </VSTemplate>
