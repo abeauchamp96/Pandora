@@ -1,6 +1,9 @@
 name: $(Build.DefinitionName).$(Build.SourceBranchName).$(Date:yyyyMMdd).$(Rev:r)
 
-pool: 'Hyrule'
+pool:
+  name: 'Hyrule'
+  demands:
+    - agent.os -equals Windows_NT
 
 pr:
 - develop
@@ -11,7 +14,7 @@ trigger:
 - main
 
 variables:
-  version: 0.4.0
+  version: 0.5.0
   pandora: 'Pandora-$(version)'
 
 stages:

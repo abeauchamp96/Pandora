@@ -2,6 +2,8 @@
 // Licensed under the MIT license.
 
 using FluentAssertions;
+using Moq;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -67,6 +69,74 @@ namespace Pandora.Utility.Extensions
             var emptyPage = list.Page(2, 3);
 
             emptyPage.Should().BeEmpty();
+        }
+
+        [Fact]
+        public void HasSingle_ShouldReturnTrue_WhenHavingOneElementInTheCollection()
+        {
+            var list = new[] { 1 };
+
+            var result = list.HasSingle();
+
+            result.Should().BeTrue();
+        }
+
+        [Fact]
+        public void HasSingle_ShouldReturnFalse_WhenHavingMoreThanOneElementInTheCollection()
+        {
+            var list = new[] { 1, 2 };
+
+            var result = list.HasSingle();
+
+            result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void HasSingle_ShouldReturnFalse_WhenCollectionIsEmpty()
+        {
+            var list = Enumerable.Empty<int>();
+
+            var result = list.HasSingle();
+
+            result.Should().BeFalse();
+        }
+
+        [Fact]
+        public void HasSingle_ShouldUseEnumerator_WhenIsNotACollectionAndHavingOneElement()
+        {
+            var enumeratorMock = new Mock<IEnumerator<int>>();
+            enumeratorMock.Setup(e => e.MoveNext()).Returns(true);
+
+            var enumerableMock = new Mock<IEnumerable<int>>();
+            enumerableMock.Setup(e => e.GetEnumerator()).Returns(enumeratorMock.Object);
+
+            enumerableMock.Object.HasSingle();
+
+            enumeratorMock.Verify(e => e.MoveNext(), Times.Exactly(2));
+        }
+
+        [Fact]
+        public void HasSingle_ShouldUseEnumerator_WhenIsNotACollectionAndIsEmpty()
+        {
+            var enumeratorMock = new Mock<IEnumerator<int>>();
+
+            var enumerableMock = new Mock<IEnumerable<int>>();
+            enumerableMock.Setup(e => e.GetEnumerator()).Returns(enumeratorMock.Object);
+
+            enumerableMock.Object.HasSingle();
+
+            enumeratorMock.Verify(e => e.MoveNext());
+        }
+
+        [Fact]
+        public void HasSingle_ShouldUseCount_WhenIsACollection()
+        {
+            var collectionMock = new Mock<ICollection<int>>();
+            collectionMock.SetupGet(c => c.Count).Returns(1);
+
+            collectionMock.Object.HasSingle();
+
+            collectionMock.VerifyGet(c => c.Count);
         }
     }
 }
