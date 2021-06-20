@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added TestBaseBuilder to permit build object for unit tests
 - Added LoggerMock
 - Added Health API which contains an extensions to use a custom response writer
+- Added It.Is and It.IsAny snippet for unit tests
 
 ## 0.4.0 &#8212; 2021-05-16
 
