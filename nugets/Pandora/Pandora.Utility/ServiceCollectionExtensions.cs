@@ -19,7 +19,8 @@ namespace Pandora.Utility
                 .AddTransient<IFileHelper, FileHelper>()
                 .AddTransient<IFileReaderHelper, FileReaderHelper>()
                 .AddTransient<IFileWriterHelper, FileWriterHelper>()
-                .AddTransient<IPathHelper, PathHelper>();
+                .AddTransient<IPathHelper, PathHelper>()
+                .AddTransient<IDelayHelper, DelayHelper>();
         }
 
         public static IServiceCollection AddUptime<TUptime>(this IServiceCollection services) where TUptime : class, IUptime<TUptime>
