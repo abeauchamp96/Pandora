@@ -6,13 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Table of Contents
+- [1.0.0](#100--2021-07-02)
 - [0.5.0](#050--2021-06-20)
 - [0.4.0](#040--2021-05-16)
 - [0.3.0](#030--2021-04-25)
 - [0.2.0](#020--2021-04-04)
 - [0.1.0](#010--2021-02-28)
 
-## 0.5.0 &#8212; 2021-05-20
+## 1.0.0 &#8212; 2021-07-02
+
+### Added
+
+- Added RandomHelper
+- Added DelayHelper
+
+## 0.5.0 &#8212; 2021-06-20
 
 ### Added
 
