@@ -18,7 +18,7 @@ namespace Pandora.TestKit
                 It.IsAny<EventId>(),
                 It.Is<It.IsAnyType>((v, t) => State(v, t, expectedMessage)),
                 It.IsAny<Exception>(),
-                It.Is<Func<It.IsAnyType, Exception, string>>((v, t) => true)),
+                It.Is<Func<It.IsAnyType, Exception?, string>>((v, t) => true)),
                 times.Value);
         }
 
